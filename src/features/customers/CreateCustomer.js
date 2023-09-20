@@ -5,12 +5,13 @@ import { createCustomer } from "./customerSlice";
 function Customer() {
   const [fullName, setFullName] = useState("");
   const [nationalId, setNationalId] = useState("");
+  const [createdAt, setCreatedAt] = useState("");
 
   const dispatch = useDispatch();
 
   function handleClick() {
-    if (!fullName || !nationalId) return;
-    dispatch(createCustomer(fullName, nationalId));
+    if (!fullName || !nationalId || createdAt) return;
+    dispatch(createCustomer(fullName, nationalId, createdAt));
   }
 
   return (
